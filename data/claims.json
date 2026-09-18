@@ -1,0 +1,97 @@
+[
+  {
+    "claim_id": "C-2031",
+    "policy_number": "POL-5521",
+    "claim_type": "water_damage",
+    "loss_date": "2026-08-15",
+    "report_date": "2026-08-16",
+    "amount": 8500,
+    "description": "Pipe burst caused water damage.",
+    "documents": [
+      "repair_estimate.pdf",
+      "damage_photos.zip"
+    ]
+  },
+  {
+    "claim_id": "C-2032",
+    "policy_number": "POL-5521",
+    "claim_type": "water_damage",
+    "loss_date": "2026-02-10",
+    "report_date": "2026-02-12",
+    "amount": 4200,
+    "description": "Basement flooding.",
+    "documents": [
+      "damage_photos.zip"
+    ]
+  },
+  {
+    "claim_id": "C-2033",
+    "policy_number": "POL-9981",
+    "claim_type": "theft",
+    "loss_date": "2026-08-30",
+    "report_date": "2026-09-02",
+    "amount": 25000,
+    "description": "Jewelry theft reported three days after the loss.",
+    "documents": []
+  },
+  {
+    "claim_id": "C-2034",
+    "policy_number": "POL-4410",
+    "claim_type": "fire",
+    "loss_date": "",
+    "report_date": "2026-08-20",
+    "amount": 0,
+    "description": "Fire damage reported, but loss date and claim amount are missing.",
+    "documents": []
+  },
+  {
+    "claim_id": "C-2035",
+    "policy_number": "POL-5521",
+    "claim_type": "fire",
+    "loss_date": "2027-01-10",
+    "report_date": "2027-01-11",
+    "amount": 12000,
+    "description": "Fire damage reported one day after the loss.",
+    "documents": []
+  },
+  {
+    "claim_id": "C-2036",
+    "policy_number": "POL-5521",
+    "claim_type": "water_damage",
+    "loss_date": "2026-05-10",
+    "report_date": "2026-05-25",
+    "amount": 7000,
+    "description": "Water damage caused by a pipe leak. Claim reported 15 days after the loss.",
+    "documents": []
+  },
+  {
+    "claim_id": "C-2037",
+    "policy_number": "POL-5521",
+    "claim_type": "water_damage",
+    "loss_date": "2026-06-05",
+    "report_date": "2026-06-06",
+    "amount": 49500,
+    "description": "Extensive water damage with a requested amount close to the policy coverage limit.",
+    "documents": []
+  },
+  {
+    "claim_id": "C-2038",
+    "policy_number": "POL-5521",
+    "claim_type": "water_damage",
+    "loss_date": "2026-06-10",
+    "report_date": "2026-06-11",
+    "amount": 60000,
+    "description": "Water damage claim exceeding the policy coverage limit.",
+    "documents": []
+  },
+  {
+    "claim_id": "C-2040",
+    "policy_number": "POL-9999",
+    "claim_type": "theft",
+    "loss_date": "2026-08-30",
+    "report_date": "2026-09-01",
+    "amount": 5000,
+    "description": "Theft claim submitted against a policy number that does not exist in the policy repository.",
+    "documents": []
+  }
+]

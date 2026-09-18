@@ -1,0 +1,38 @@
+[
+  {
+    "policy_number": "POL-5521",
+    "policy_type": "homeowners",
+    "coverage_limit": 50000,
+    "effective_date": "2025-01-01",
+    "expiration_date": "2026-12-31",
+    "covered_claim_types": [
+      "water_damage",
+      "fire",
+      "theft"
+    ]
+  },
+  {
+    "policy_number": "POL-9981",
+    "policy_type": "homeowners",
+    "coverage_limit": 25000,
+    "effective_date": "2026-08-27",
+    "expiration_date": "2027-08-27",
+    "covered_claim_types": [
+      "water_damage",
+      "fire",
+      "theft"
+    ]
+  },
+  {
+    "policy_number": "POL-4410",
+    "policy_type": "homeowners",
+    "coverage_limit": 40000,
+    "effective_date": "2024-01-01",
+    "expiration_date": "2026-01-01",
+    "covered_claim_types": [
+      "water_damage",
+      "fire",
+      "theft"
+    ]
+  }
+]
