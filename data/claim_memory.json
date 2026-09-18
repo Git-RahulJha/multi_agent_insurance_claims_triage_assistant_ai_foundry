@@ -18,5 +18,65 @@
     "claim_id": "C-2034",
     "memory_type": "adjuster_note",
     "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_briefing",
+    "content": "Claim C-2034 (policy POL-4410) reports a fire loss but lacks critical information required for automated adjudication: loss_date is missing, claim amount is unspecified (0), and no supporting documents are attached. The claim report_date (2026-08-20) is after the policy expiration (2026-01-01). Policy POL-4410 does list fire as a covered claim type, but coverage cannot be determined without additional information."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_briefing",
+    "content": "Claim C-2034 (fire) is attached to policy POL-4410 (homeowners). The claim record lacks a loss_date, the claim amount is missing/zero, and no supporting documents are attached. The report_date (2026-08-20) is after the policy expiration_date (2026-01-01). Coverage status is unknown and further investigation is required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_note",
+    "content": "Loss date and amount are missing. Manual review required."
+  },
+  {
+    "claim_id": "C-2034",
+    "memory_type": "adjuster_briefing",
+    "content": "Claim C-2034 (policy POL-4410) is a reported fire loss with critical missing information. The claim record lacks a loss_date and a claim amount (amount field = 0), and no supporting documents were uploaded. The claim was reported 2026-08-20, which is after the policy expiration date 2026-01-01. The policy lists 'fire' as a covered claim type, but because the loss date and amount are missing and reporting is after expiration, coverage cannot be determined automatically."
   }
 ]

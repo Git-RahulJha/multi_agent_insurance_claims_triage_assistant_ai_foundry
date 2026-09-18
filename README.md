@@ -318,3 +318,75 @@ Briefing Agent
 Save important result to long-term memory
    ↓
 Final State
+
+HITL (Human In The Loop) scenario:
+
+                    ┌── continue ──→ Briefing → Memory → Complete
+                    │
+Supervisor → HITL ──┤
+                    │
+                    └── reject ───→ Rejected
+
+Observability:
+After adding logging, workflow should look like:
+                     Supervisor
+                         │
+                    Load Memory
+                         │
+                         ▼
+                  ┌─────────────┐
+                  │ Intake Agent│
+                  └──────┬──────┘
+                         │
+                    Timeout
+                    Error capture
+                         │
+                         ▼
+                ┌──────────────────┐
+                │ Coverage Agent   │
+                └────────┬─────────┘
+                         │
+                    Timeout
+                    Error capture
+                         │
+                         ▼
+                    HITL Checkpoint
+                         │
+                         ▼
+                ┌──────────────────┐
+                │ Briefing Agent   │
+                └────────┬─────────┘
+                         │
+                    Timeout
+                    Error capture
+                         │
+                         ▼
+                    Save Memory
+                         │
+                         ▼
+                      Complete
+
+with logging look like (copied from demo output):
+[SUPERVISOR] Starting claim triage...
+2026-09-18 17:26:45,984 | INFO | claims.supervisor | Starting claim triage | claim_id=C-2034
+2026-09-18 17:26:45,985 | INFO | claims.supervisor | Loading persistent memory| claim_id=C-2034
+2026-09-18 17:26:45,986 | INFO | claims.supervisor | Executing Intake Agent | claim_id=C-2034
+
+
+Final outcomes are as follow:
+| Demo requirement            | Status |
+| --------------------------- | ------ |
+| Supervisor Agent            | ✅      |
+| Intake Agent                | ✅      |
+| Coverage & Anomaly Agent    | ✅      |
+| Adjuster Briefing Agent     | ✅      |
+| Explicit orchestration      | ✅      |
+| Short-term state            | ✅      |
+| Long-term persistent memory | ✅      |
+| Azure AI Search grounding   | ✅      |
+| HITL checkpoint             | ✅      |
+| HITL resume                 | ✅      |
+| 3+ function tools           | ✅      |
+| Timeout handling            | ✅      |
+| Structured errors           | ✅      |
+| Basic logging               | ✅      |

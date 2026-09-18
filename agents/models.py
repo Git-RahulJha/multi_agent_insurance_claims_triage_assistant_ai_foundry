@@ -51,3 +51,9 @@ class AdjusterBriefing(BaseModel):
     ]
     supporting_evidence: list[Evidence] = Field(default_factory=list)
     reasoning: str
+
+class AgentError(BaseModel):
+    agent: str
+    error_type: str
+    message: str
+    recoverable: bool = False

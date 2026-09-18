@@ -1,3 +1,5 @@
+#To view end-to-end result, check all the way down to this document.
+
 Intake agent output:
 
 claim C-2034
@@ -379,3 +381,188 @@ Claim C-2034
   ],
   "reasoning": "Authoritative policy POL-4410 lists 'fire' as a covered claim type, so claim_type_covered is true. The claim record lacks a loss_date and a valid claim amount (description states both are missing and amount field is 0), so within_policy_period and amount_within_limit cannot be evaluated (null). Thereport_date (2026-08-20) is after the policy expiration (2026-01-01), and there are no supporting documents—these, together with the missing critical fields,trigger anomaly flags and require investigation. Because loss date and amount are missing, coverage cannot be confirmed or denied, so overall coverage_statusis set to 'unknown'."
 }
+
+
+End to end workflow:
+
+Normal flow:
+C-2031
+    ↓
+Intake
+    ↓
+Coverage
+    ↓
+Briefing
+    ↓
+Completed
+
+HITL path:
+
+C-2034
+    ↓
+Intake
+    ↓
+Coverage
+    ↓
+HITL
+    ↓
+Human decision
+    ↓
+Briefing
+    ↓
+Completed
+
+Demo output:
+
+Scenario 1: Enter Claim ID C-2034, Human i the loop decision: continue
+
+command python -m main
+Claim ID: C-2034
+============================================================
+      INSURANCE CLAIMS TRIAGE ASSISTANT
+============================================================
+
+
+
+[SUPERVISOR] Starting claim triage...
+[SUPERVISOR] Current step: human_review_checkpoint
+
+[MEMORY] Previous memory found:
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_briefing: Claim C-2034 (policy POL-4410) reports a fire loss but lacks critical information required for automated adjudication: loss_date is missing, claim amount is unspecified (0), and no supporting documents are attached. The claim report_date (2026-08-20) is after the policy expiration (2026-01-01). Policy POL-4410 does list fire as a covered claim type, but coverage cannotbe determined without additional information.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+
+[INTAKE AGENT]
+  Valid: False
+  Manual review: True
+  Missing fields: loss_date, amount, supporting_documents
+  Validation errors:
+    - loss_date is missing or empty.
+    - amount is zero or not provided.
+    - No supporting documents attached to the claim.
+    - report_date (2026-08-20) is after policy expiration_date (2026-01-01).
+
+[COVERAGE & ANOMALY AGENT]
+  Coverage status: unknown
+  Investigation required: True
+  Anomaly flags:
+    - missing_loss_date
+    - missing_claim_amount_or_zero_value
+    - report_date_after_policy_expiration
+    - no_supporting_documents
+
+============================================================
+              HUMAN REVIEW REQUIRED
+============================================================
+
+Reason:
+Intake validation requires manual review. Coverage/anomaly analysis requires investigation.
+
+Available actions:
+  1. continue
+  2. reject
+
+Enter human decision: continue
+
+[SUPERVISOR] Human decision: continue
+
+============================================================
+                  FINAL RESULT
+============================================================
+
+Status: completed
+Current step: completed
+
+[ADJUSTER BRIEFING]
+
+Summary:
+Claim C-2034 (fire) is attached to policy POL-4410 (homeowners). The claim record lacks a loss_date, the claim amount is missing/zero, and no supporting documents are attached. The report_date (2026-08-20) is after the policy expiration_date (2026-01-01). Coverage status is unknown and further investigation is required.
+
+Key findings:
+  - Claim exists: claim_id C-2034, claim_type: fire.
+  - Policy found: policy_number POL-4410 (homeowners), coverage_limit 40000, covers 'fire'.
+  - Critical claim fields missing: loss_date empty and amount recorded as 0 / not provided.
+  - No supporting documents attached (documents_count: 0).
+  - Temporal anomaly: report_date 2026-08-20 is after policy expiration_date 2026-01-01.
+  - Coverage status reported as 'unknown' and investigation_required = true.
+
+Recommended action: manual_review
+
+Missing information:
+  - loss_date (missing/empty)
+  - claim amount (missing or recorded as 0)
+  - supporting documents (none attached)
+  - confirmation of policy status/dates (to determine if coverage was in forceat time of loss or if any endorsements/reinstatements apply)
+
+
+Scenario 2: Enter Claim ID: C-2034, Human i the loop decision: reject
+
+============================================================
+      INSURANCE CLAIMS TRIAGE ASSISTANT
+============================================================
+
+Enter Claim ID: C-2034
+
+[SUPERVISOR] Starting claim triage...
+[SUPERVISOR] Current step: human_review_checkpoint
+
+[MEMORY] Previous memory found:
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_briefing: Claim C-2034 (policy POL-4410) reports a fire loss but lacks critical information required for automated adjudication: loss_date is missing, claim amount is unspecified (0), and no supporting documents are attached. The claim report_date (2026-08-20) is after the policy expiration (2026-01-01). Policy POL-4410 does list fire as a covered claim type, but coverage cannotbe determined without additional information.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_note: Loss date and amount are missing. Manual review required.
+  - adjuster_briefing: Claim C-2034 (fire) is attached to policy POL-4410 (homeowners). The claim record lacks a loss_date, the claim amount is missing/zero,and no supporting documents are attached. The report_date (2026-08-20) is after the policy expiration_date (2026-01-01). Coverage status is unknown and further investigation is required.
+
+[INTAKE AGENT]
+  Valid: False
+  Manual review: True
+  Missing fields: loss_date, amount, documents
+  Validation errors:
+    - loss_date is missing or empty
+    - amount is zero or unspecified
+    - claim report_date (2026-08-20) occurs after policy expiration (2026-01-01)
+    - no supporting documents attached to the claim
+
+[COVERAGE & ANOMALY AGENT]
+  Coverage status: unknown
+  Investigation required: True
+  Anomaly flags:
+    - missing_critical_information
+    - report_date_after_policy_expiration
+
+============================================================
+              HUMAN REVIEW REQUIRED
+============================================================
+
+Reason:
+Intake validation requires manual review. Coverage/anomaly analysis requires investigation.
+
+Available actions:
+  1. continue
+  2. reject
+
+Enter human decision: reject
+
+[SUPERVISOR] Human decision: reject
+
+============================================================
+                  FINAL RESULT
+============================================================
+
+Status: rejected_by_human
+Current step: human_rejected
+
+The claim was rejected by the human reviewer.
